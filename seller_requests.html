@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livestock</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var flashMessages = document.querySelectorAll('.flash-message');
+      flashMessages.forEach(function (message) {
+        setTimeout(function () {
+          message.style.display = 'none';
+        }, 2000);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Livestock</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/sellerwel">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/add">Add livestock</a></li>
+            <li class="nav-item"><a class="nav-link" href="/myorders">My orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/seller_requests">Request Status</a></li>
+            <li class="nav-item"><a class="nav-link" href="/sellerreport">Report</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container mt-5">
+      <h2 class="text-center mb-4">My Orders</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>Request ID</th>
+              <th>Buyer Name</th>
+              <th>Buyer Username</th>
+              <th>Buyer Mobile</th>
+              <th>Product ID</th>
+              <th>Category</th>
+              <th>Price</th>
+			  <th>Date & Time</th>
+              <th>Image</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for request in requests %}
+            <tr>
+              <td>{{ request.id }}</td>
+              <td>{{ request.buyer_name }}</td>
+              <td>{{ request.buyer_username }}</td>
+              <td>{{ request.buyer_mobile }}</td>
+              <td>{{ request.product_id }}</td>
+              <td>{{ request.category }}</td>
+              <td>${{ request.price }}</td>
+			  <td>{% if request.meeting_date %}{{ request.meeting_date }} - {{ request.meeting_time }}{% else %}<span class="text-muted">Not Alloted Date and Time{% endif %}</span></td>
+              <td><img src="{{ url_for('static', filename='uploads/' + request.image) }}" width="100"></td>
+              <td>
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal{{ request.id }}">Update datetime</a>
+                <div>&nbsp;</div>
+                <a href="{{ request.link }}" class="btn btn-sm btn-primary" target="_blank">Make Call</a><div>&nbsp;</div><a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal1{{ request.id }}">Update Link</a>
+              </td>
+            </tr>
+
+            <!-- Modal -->
+            <div class="modal fade" id="updateModal{{ request.id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel{{ request.id }}" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <form action="{{ url_for('update_meeting') }}" method="POST">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="updateModalLabel{{ request.id }}">Update Meeting Info</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <input type="hidden" name="request_id" value="{{ request.id }}">
+                      <div class="form-group">
+                        <label for="meeting_date">Meeting Date</label>
+                        <input type="date" class="form-control" name="meeting_date" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="meeting_time">Meeting Time</label>
+                        <input type="time" class="form-control" name="meeting_time" required>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+			
+					
+
+<!-- Modal -->
+<div class="modal fade" id="updateModal1{{ request.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form method="POST" action="{{ url_for('update_review_link') }}">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Call Link (</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="review_id" value="{{ request.id }}">
+          <div class="form-group">
+            <label for="link">Meeting Link</label>
+            <input type="url" class="form-control" name="link" placeholder="Paste Yoom meeting link" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Update Link</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="text-center mt-5 mb-3">
+      <p>LiveStock Exchange</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+
+<html lang="en">
+<head>
+  <title>Livestock - Buyer Details</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- SEO & Social Meta -->
+  <meta property="og:title" content="Livestock Exchange"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content="Livestock Exchange"/>
+  <meta property="og:description" content="Livestock buyer details and management."/>
+  <meta name="twitter:title" content="Livestock Exchange" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="../static/css/animate.css" />
+
+  <!-- Icomoon & Ion Icons -->
+  <link rel="stylesheet" href="../static/css/icomoon.css" />
+  <link rel="stylesheet" href="../static/css/ionicons.min.css" />
+
+  <!-- Owl Carousel & Magnific Popup -->
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../static/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="../static/css/magnific-popup.css" />
+
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css" />
+
+  <!-- Flaticons -->
+  <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css" />
+
+  <!-- Custom Theme Style -->
+  <link rel="stylesheet" href="../static/css/style.css" />
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f9fa;
+      color: #444;
+    }
+
+    /* Navbar */
+    #colorlib-logo a {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #5a4fcf;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    #colorlib-logo a:hover {
+      color: #7b68ee;
+      text-decoration: none;
+    }
+
+    .colorlib-nav .top-menu {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 0;
+      margin-bottom: 20px;
+    }
+    .colorlib-nav .menu-1 ul li a {
+      color: #444;
+      font-weight: 600;
+      padding: 10px 15px;
+      transition: color 0.3s ease;
+    }
+    .colorlib-nav .menu-1 ul li a:hover,
+    .colorlib-nav .menu-1 ul li.active > a {
+      color: #7b68ee;
+    }
+    .colorlib-nav .cart a {
+      color: #e74c3c !important;
+      font-weight: 700;
+    }
+
+    /* Search box */
+    .search-wrap .form-control {
+      border-radius: 25px 0 0 25px;
+      padding-left: 20px;
+      border: 1.5px solid #7b68ee;
+      transition: all 0.3s ease;
+    }
+    .search-wrap .submit-search {
+      border-radius: 0 25px 25px 0;
+      background-color: #7b68ee;
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .search-wrap .submit-search:hover {
+      background-color: #5a4fcf;
+    }
+
+    /* Breadcrumb */
+    .breadcrumbs {
+      background: #fff;
+      padding: 12px 0;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .breadcrumbs .bread a {
+      color: #7b68ee;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .breadcrumbs .bread span {
+      color: #999;
+      font-weight: 400;
+    }
+
+    /* Buyer Details Section */
+    section.intro {
+      padding: 40px 0;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    section.intro h2 {
+      font-family: 'Rokkitt', serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #5a4fcf;
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(123,104,238,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(123,104,238,0.3);
+    }
+    .card-body {
+      padding: 20px 25px;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #5a4fcf;
+      margin-bottom: 12px;
+      text-transform: capitalize;
+    }
+    .card-text {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    #colorlib-footer {
+      background: #fff;
+      padding: 20px 0;
+      margin-top: 50px;
+      text-align: center;
+      font-weight: 600;
+      color: #777;
+      border-top: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+
+    /* Go to top button */
+    .gototop.js-top a {
+      background: #7b68ee;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 22px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .gototop.js-top a:hover {
+      background: #5a4fcf;
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="colorlib-loader"></div>
+
+<div id="page">
+  <!-- Navigation -->
+  <nav class="colorlib-nav" role="navigation">
+    <div class="top-menu">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-sm-7 col-md-9">
+            <div id="colorlib-logo"><a href="index.html">Livestock</a></div>
+          </div>
+          <div class="col-sm-5 col-md-3">
+            <form action="#" class="search-wrap d-flex">
+              <input type="search" class="form-control search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-primary submit-search" type="submit"><i class="icon-search"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-sm-12 text-left menu-1">
+            <ul class="list-unstyled d-flex flex-wrap mb-0">
+              <li class="mr-3"><a href="/">Home</a></li>
+              <li class="mr-3"><a href="/sellertab">Seller details</a></li>
+              <li class="mr-3"><a href="/buyertab">Customer details</a></li>
+              <li class="mr-3"><a href="/report">Report</a></li>
+              <li class="cart ml-auto"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sale py-3 bg-light">
+      <div class="container text-center">
+        <div class="owl-carousel2 owl-theme">
+          <div class="item"><h3 class="text-primary font-weight-bold">Livestock Exchange</h3></div>
+          <div class="item"><h3 class="text-primary font-weight-bold">Livestock Exchange</h3></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumbs container">
+    <div class="row">
+      <div class="col">
+        <p class="bread">
+          <span><a href="index.html">Home</a></span> / <span>Admin</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buyer Details Section -->
+  <section class="intro container">
+    <h2>Buyer Details</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for row in tb_buyer %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ row.1 }}</h5>
+            <p class="card-text"><strong>Address:</strong> {{ row.3 }}</p>
+            <p class="card-text"><strong>Mobile no:</strong> {{ row.4 }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ row.5 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="colorlib-footer" role="contentinfo">
+    <div class="copy">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p>LiveStock Exchange &copy; {{ current_year if current_year else "2025" }}</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Go to top -->
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+</div>
+
+<!-- Scripts -->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/jquery.easing.1.3.js"></script>
+<script src="../static/js/jquery.waypoints.min.js"></script>
+<script src="../static/js/jquery.flexslider-min.js"></script>
+<script src="../static/js/owl.carousel.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/magnific-popup-options.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/jquery.stellar.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+<script src="../static/js/google_map.js"></script>
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

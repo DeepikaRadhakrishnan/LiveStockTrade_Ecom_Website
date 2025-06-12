@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>Livestock Exchange</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rokkitt:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/animate.css">
+<link rel="stylesheet" href="../static/css/icomoon.css">
+<link rel="stylesheet" href="../static/css/ionicons.min.css">
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/magnific-popup.css">
+<link rel="stylesheet" href="../static/css/flexslider.css">
+<link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    .colorlib-nav {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 0;
+    }
+
+    .colorlib-nav .menu-1 ul li a {
+        color: #fff;
+        font-weight: 500;
+        padding: 10px 20px;
+        transition: 0.3s;
+    }
+
+    .colorlib-nav .menu-1 ul li a:hover {
+        background: #82ae46;
+        color: white;
+        border-radius: 25px;
+    }
+
+    .search-wrap .form-control {
+        border-radius: 50px;
+        padding: 10px 20px;
+    }
+
+    .submit-search {
+        border-radius: 50%;
+        background-color: #82ae46;
+        border: none;
+        position: absolute;
+        right: 15px;
+        top: 5px;
+    }
+
+    .breadcrumbs-img {
+        position: relative;
+        height: 300px;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .breadcrumbs-img::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        color: white;
+    }
+
+    .menu p a {
+        font-size: 28px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    #colorlib-footer {
+        background: #222;
+        color: #ccc;
+        padding: 30px 0;
+    }
+
+    #colorlib-footer p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .gototop {
+        background: #82ae46;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        color: white;
+        font-size: 20px;
+        transition: background 0.3s;
+    }
+
+    .gototop:hover {
+        background: #5c7c30;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="colorlib-loader"></div>
+
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-md-9">
+                        <div id="colorlib-logo"><a href="index.html" style="color: #fff; font-weight:700;">Livestock Exchange</a></div>
+                    </div>
+                    <div class="col-sm-5 col-md-3">
+                        <form action="#" class="search-wrap position-relative">
+                            <div class="form-group mb-0">
+                                <input type="search" class="form-control search" placeholder="Search...">
+                                <button class="btn submit-search text-center" type="submit"><i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-left menu-1">
+                        <ul class="d-flex justify-content-center mt-3">
+                            <li><a href="/sellerwel">Home</a></li>
+                            <li><a href="/add">Add Livestock</a></li>
+                            <li><a href="/myorders">My Orders</a></li>
+                            <li><a href="/seller_requests">Request Status</a></li>
+                            <li><a href="/sellerreport">Report</a></li>
+                            <li class="cart"><a href="{{ url_for('logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div>&nbsp;</div><div>&nbsp;</div>
+
+    <div class="breadcrumbs-two">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumbs-img" style="background-image: url('../static/images/welcome.jpg');">
+                        <div class="menu text-center">
+                            <p><a href="#">Hi {{ username }} !!!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+
+    <footer id="colorlib-footer" role="contentinfo">
+        <div class="container">
+            <div class="copy">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>© 2025 LiveStock Exchange. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/jquery.easing.1.3.js"></script>
+<script src="../static/js/jquery.waypoints.min.js"></script>
+<script src="../static/js/jquery.flexslider-min.js"></script>
+<script src="../static/js/owl.carousel.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/magnific-popup-options.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/jquery.stellar.min.js"></script>
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+
+<html>
+	<head>
+	<title>Livestock</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../static/css/icomoon.css">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="../static/css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="../static/css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../static/css/style.css">
+	
+
+<script>
+        // Wait for the DOM to be ready
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all flash messages and set a timeout to remove them after 5000 milliseconds (5 seconds)
+            var flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(function (message) {
+                setTimeout(function () {
+                    message.style.display = 'none';
+                }, 2000);  // Adjust the time delay (in milliseconds) as needed
+            });
+        });
+    </script>
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-7 col-md-9">
+							<div id="colorlib-logo"><a href="index.html">Livestock</a></div>
+						</div>
+						<div class="col-sm-5 col-md-3">
+			            <form action="#" class="search-wrap">
+			               <div class="form-group">
+			                  <input type="search" class="form-control search" placeholder="Search">
+			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+			               </div>
+			            </form>
+			         </div>
+		         </div>
+					<div class="row">
+						<div class="col-sm-12 text-left menu-1">
+							<ul>
+								<li><a href="/buyerwel">Home</a></li>
+								<li><a href="/livestock">Livestock</a></li>
+								<li><a href="/bookings">My bookings</a></li>
+								<li><a href="/myrequests">My Requests</a></li>
+								<li><a href="/buyerreport">Report</a></li>
+								
+								
+								<li class="cart"><a href="{{ url_for('logout') }}">Logout</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sale">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center">
+							<div class="row">
+								<div class="owl-carousel2">
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">LiveStock Exchange</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">LiveStock Exchange</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="index.html">Home</a></span> / <span>Seller</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">My orders</h2>
+				</div>
+			</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Seller</th>
+			<th>Datetime</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.category }}</td>
+            <td>${{ request.price }}</td>
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + request.image) }}" width="100" alt="Product Image">
+            </td>
+            <td>{{ request.seller_username }}</td>
+			<td>{% if request.meeting_date %}{{ request.meeting_date }} - {{ request.meeting_time }}{% else %}<span class="text-muted">Not Alloted Date and Time{% endif %}</span></td>
+            <td> {% if request.link %}
+    <a href="{{ request.link }}" class="btn btn-sm btn-success" target="_blank">Join Review</a>
+  {% else %}
+    <span class="text-muted">Not scheduled</span>
+  {% endif %}</td> <!-- Default to 'Pending' if status is NULL -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  {% for row in tb_booking %}
+<div class="modal fade" id="modaleditt{{ row.0 }}" tabindex="-1" role="dialog" aria-labelledby="modaleditLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document"> <!-- Add modal-sm class here -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modaleditLabel">Update process</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your review form here -->
+                <form action="{{url_for('myorders')}}" method="post">
+                    <input type="hidden" name="aid" value="{{row.0}}">
+                    <select name="orderstatus" class="form-control my-4">
+                        <option value="Order confirmed" {% if row.9 == 'confirmed' %}selected{% endif %}>Order Confirmed</option>
+                        <option value="processing" {% if row.9 == 'processing' %}selected{% endif %}>Processing</option>
+                        <option value="delivered" {% if row.9 == 'delivered' %}selected{% endif %}>Delivered</option>
+                        <!-- Add other status options as needed -->
+                    </select><br>
+                    <button type="submit"  class="btn btn-info btn-block  form-control my-4">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+		{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="list-style: none; padding: 10px; margin: 0;">
+                {% for message in messages %}
+                    <li class="flash-message" style="margin-bottom: 10px; padding: 10px; border-radius: 5px; color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+		<footer id="colorlib-footer" role="contentinfo">
+			
+				
+			<div class="copy">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p>
+							LiveStock Exchange
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+	</div>
+	<script>
+    function showRegistrationForm() {
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("registrationForm").style.display = "block";
+    }
+	</script>
+	<!-- jQuery -->
+	<script src="../static/js/jquery.min.js"></script>
+   <!-- popper -->
+   <script src="../static/js/popper.min.js"></script>
+   <!-- bootstrap 4.1 -->
+   <script src="../static/js/bootstrap.min.js"></script>
+   <!-- jQuery easing -->
+   <script src="../static/js/jquery.easing.1.3.js"></script>
+	<!-- Waypoints -->
+	<script src="../static/js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="../static/js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="../static/js/bootstrap-datepicker.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="../static/js/jquery.stellar.min.js"></script>
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script src="../static/js/google_map.js"></script>
+	<!-- Main -->
+	<script src="../static/js/main.js"></script>
+
+	
+	<script src="../sample/demo/static/tjs/jquery.min.js"></script>
+  <script src="../sample/demo/static/tjs/popper.js"></script>
+  <script src="../sample/demo/static/tjs/bootstrap.min.js"></script>
+  <script src="../sample/demo/static/tjs/main.js"></script>
+
+	</body>
+</html>
+
